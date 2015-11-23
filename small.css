@@ -1,12 +1,12 @@
+/*
 body {
 	background-color: blue;
 	font-size: 200%;
 }
-/*
-@media screen and (max-width="800px") {
+*/
+@media screen and (max-width:800px) {
 	body {
 		background-color: blue;
 		font-size: 200%;
 	}
 }
-*/
