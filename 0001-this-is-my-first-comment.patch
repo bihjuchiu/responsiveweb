@@ -1,0 +1,21 @@
+From 205e4ca9a861cf2d66927f67eebca167e6e04c64 Mon Sep 17 00:00:00 2001
+From: Bihju <beatriceguardregister@gmail.com>
+Date: Thu, 12 Nov 2015 20:57:50 -0800
+Subject: [PATCH] this is my first comment
+
+Signed-off-by: Bihju <beatriceguardregister@gmail.com>
+---
+ my_first_program.c | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 my_first_program.c
+
+diff --git a/my_first_program.c b/my_first_program.c
+new file mode 100644
+index 0000000..0527e6b
+--- /dev/null
++++ b/my_first_program.c
+@@ -0,0 +1 @@
++This is a test
+-- 
+2.6.2.windows.1
+
