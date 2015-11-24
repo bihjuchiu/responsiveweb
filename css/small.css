@@ -1,12 +1,62 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Bottom Menu */
+
+img {
+	max-width: 100%;
+}
+
+.bottom-menu {
+	font-size: 1em;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+.bottom-menu ul a li {
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	float: left;
+	list-style: none;
+	width: 16.8%;
+	padding: 1.6%;
+	height: 100%;
+	background-color: #cccc00;
+	opacity: 0.5;
+	border-bottom: 4px solid black;
+}
+
+.bottom-menu ul a li.selected{
+	opacity: 1;
+	border-bottom: 4px solid #cc0000;
+}
+
+.bottom-menu ul a li img {
+	max-height: 2.0 em;
+	padding-top: 0.15em;
+}
+
 /*
 body {
 	background-color: blue;
-	font-size: 200%;
+	font-size: 100%;
+	font-family: Arial;
 }
-*/
+
+image {
+	max-width: 100%;
+}
+
+or
+
 @media screen and (max-width:800px) {
 	body {
 		background-color: blue;
 		font-size: 200%;
 	}
 }
+*/
