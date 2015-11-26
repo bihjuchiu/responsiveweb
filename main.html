@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <title>My Title</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="mainCtrl.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body ng-app="mainApp" ng-controller="mainCtrl">
+  <header>
+    <h2>
+      <img ng-src="images/build_small.png">
+	  {{mainCtrl.productName}}
+    </h2>
+  </header>
+ 
+  <div class="wrapper">
+<!--
+  <span ng-switch="mainCtrl.isAuthenticatedUser">
+    <span ng-switch-when="true">
+-->
+      <nav>
+        <ul>
+		  <li ng-repeat="item in mainCtrl.menuItems">
+		    <a ng-class="{selected: mainCtrl.isSelected($index)}"
+		      ng-click="mainCtrl.setPath(item.url)"
+			  ng-show="mainCtrl.isShowItem($index)">
+			{{item.text}}
+			</a>
+	      </li>
+        </ul>
+      </nav>
+
+      <section ng-view>
+<!--
+        <fieldset>
+          <legend>Your Details</legend>
+          <label for="name">Full Name:</label><input type="text" value="" />
+          <label for="address">Address:</label><input type="text" name="address" value="" />
+          <label for="email">Email:</label><input type="text" name="email" value="" />
+        </fieldset>
+-->		
+      </section>
+
+      <aside>
+	    <ul>
+		  <li><img ng-src="images/build_big.png"></li><!--
+          --><li><img ng-src="images/account_big.png"></li><!--
+          --><li><img ng-src="images/feedback_big.png"></li><!--
+          --><li><img ng-src="images/help_big.png"></li><!--
+          --><li><img ng-src="images/home_big.png"></li>
+		</ul>
+      </aside>
+    </div>
+
+	<footer>
+      <ul>
+        <li>About</li>
+        <li>Contact</li>
+        <li>More</li>
+      </ul>
+    </footer>
+<!--
+    </span>
+    <span ng-switch-default>
+      <div class='error'>
+        Failed to authenticate current user.<br>
+        Regresh the browser in a while.<br>
+        If problem persists, please add a <a href="#" ng-click="mainCtrl.sendFeedback()">
+        Feedback </a>
+      </div>
+    </span>
+  </span>
+-->
+</body>
+</html>
