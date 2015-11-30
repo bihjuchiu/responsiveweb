@@ -1,0 +1,232 @@
+<!doctype html>
+
+<html lang="en-US">
+<head>
+<title>Create</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/create.css" />
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="../js/controller/createCtrl.js"></script>
+<script src="../app.js"></script>
+</head>
+
+<body ng-app="mainApp" ng-controller="createCtrl">
+	<div class="wrapper">
+		<div class="center">
+			<h2>{{createCtrl.title}}</h2>
+			<form class="ng-invalid ng-invalid-required">
+				<h3>Use HTML table for layout</h3>
+				<table id="html-table">
+				    <!--  Source section -->
+					<tbody>
+						<tr class='row-with-bottom-border'>
+							<td class='column-head'><label>Source</label></td>
+							<td class='column-content'><select ng-model="createCtrl.sourceInfo['current']">
+									<option
+										ng-repeat="source in createCtrl.sourceInfo['sourceList']"
+										value="source">{{source}}</option>
+							</select></td>
+						</tr>
+					</tbody>
+
+				    <!--  Size section -->
+					<tbody>
+						<tr class='row-with-bottom-border'>
+							<td class='column-head'><label>Size</label></td>
+							<td class='column-content'>
+							    <!--  Size table -->
+								<table class='size-table'>
+									<tr>
+										<td><label>Owner</label></td>
+										<td><input type="text" title="Enter owner of resource"
+											ng-required="true" ng-model="create.owner"></input></td>
+									</tr>
+									<tr>
+										<td class='column-head'>
+										  <label>Co-owner</label>
+										</td>
+										<td class='column-content'>
+ 											<div class='co-owner-table'>
+												<div class='co-owner-row'>
+													<div class='co-owner-cell'>
+														<label>Family</label>
+														<p>
+															<input ng-model="createCtrl.coOwner['familyCount']"
+																ng-required="true" type="number"
+																ng-change="createCtrl.totalCountChangeHandler()"
+																min="1"	title="Number of family owner" />
+														</p>
+													</div>
+													<div class='co-owner-cell'>
+														<label>Friend</label>
+														<p>
+															<input ng-model="createCtrl.coOwner['friendCount']"
+																ng-required="true" type="number"
+																ng-change="createCtrl.totalCountChangeHandler()"
+																title="Number of friend owner" />
+														</p>
+													</div>
+													<div class='co-owner-cell'>
+														<label>Total</label>
+														<p>
+														<div>{{createCtrl.coOwner['total']}}</div>
+														</p>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						
+						<!-- Date section -->
+						<tr>
+						  <td class='column-head'>
+						    <label>Date</label>
+						  </td>
+                          <td class='column-content'>
+                            <div class="table">
+                              <div class="row">
+						        <input class="cell" type="date" ng-model="createCtrl.dateInfo['current']"></input>
+						        <input class="cell"type="button" value="Test button" ng-click="createCtrl.testButtonClicked()"></input>
+  						      </div>
+                            </div>
+                          </td>
+						</tr>
+						<!-- Time section -->
+						<tr class='row-with-bottom-border'>
+						  <td class='column-head'>
+						    <label>Time</label>
+						  </td>
+						  <td class='column-content'>
+						    <div>
+						      <ul class='time-list-table'>
+						        <li class='time-list-item time_available_{{writeCtrl.isTimeAvailable}}'
+						            ng-repeat="time in createCtrl.timeInfo['timeList']">
+						          <input type="radio" ng-model="$parent.createCtrl.timeInfo['current']"
+						              ng-value="time" ng-change="createCtrl.timeChangeHandler(time)"
+						              ng-required>
+						            {{time.display}}
+						          </input>
+						        </li>
+						      </ul>
+						    </div>
+						  </td>
+						</tr>
+						<!--  Type section  -->
+						<tr>
+						  <td class='column-head'>
+						    <label>Types</label>
+						  </td>
+						  <td class='column-content'>
+						    <table class="type-table">
+						      <tr>
+						        <td class='column-head'>
+						          <label>Mode</label>
+						        </td>
+						        <td class='column-content'>
+		                          <button-group ng-model="createCtrl.mode">
+								    <button ng-click="createCtrl.modeChangeListener('Auto')">Auto</button>
+						            <button ng-click="createCtrl.modeChangeListener('Manual')">Manual</button>
+						          </button-group>
+						        </td>
+						      </tr>
+						      <tr>
+						        <td class='column-head'>
+						          <label>Type</label>
+						        </td>
+						        <td class='column-content'>
+						          <select ng-model="createCtrl.typeInfo['current']">
+									<option
+										ng-repeat="type in createCtrl.typeInfo['availableList']"
+										value="type">{{type}}</option>
+						          </select>
+						          <button value="Add" ng-click="createCtrl.addType()">Add</button>
+						          <button value="Reset" ng-click="createCtrl.resetType()">Reset</button>
+						        </td>
+						      </tr>
+						      <tr>
+						        <td colspan="2" ng-repeat="type in createCtrl.typeInfo['selectedList']">
+						          {{type}}
+						        </td>
+						      </tr>
+						    </table>
+						  </td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h3>Use flex box for layout</h3>
+				<div id="flex-table" class="flex-column">
+					<div class="flex-row">
+						<div class="flex-cell1">
+							<label>Source</label>
+						</div>
+						<div class="flex-cell2">
+							<select ng-model="createCtrl.sourceInfo['current']">
+								<option
+									ng-repeat="source in createCtrl.sourceInfo['sourceList']"
+									value="source">{{source}}</option>
+							</select>
+						</div>
+						<div class="flex-cell3"></div>
+					</div>
+					<div class="flex-row">
+						<div class="flex-cell1">Cel2l</div>
+						<div class="flex-cell2">Cel22</div>
+						<div class="flex-cell3">Cel23</div>
+					</div>
+					<div class="flex-row">
+						<div class="flex-cell1">Cell31</div>
+						<div class="flex-cell2">Cell32</div>
+						<div class="flex-cell3">Cell33</div>
+					</div>
+				</div>
+
+				<h3>Use CSS table for layout</h3>
+				<div id="css-table" class="table">
+					<div class="row">
+						<span class="cell-head"> <label>Source</label>
+						</span> <span class="cell"> <select
+							ng-model="createCtrl.sourceInfo['current']">
+								<option
+									ng-repeat="source in createCtrl.sourceInfo['sourceList']"
+									value="source">{{source}}</option>
+						</select>
+						</span>
+					</div>
+					<div class="row">
+						<span class="cell-head"> <label>Size</label>
+						</span> <span class="cell"> <label>Owner</label> <input
+							ng-model="createCtrl.owner" title="Enter owner's name here"></input>
+						</span>
+					</div>
+					<div class="row">
+						<span class="cell-head"> <label>Date</label>
+						</span> <span class="cell"> </span>
+					</div>
+					<div class="row">
+						<span class="cell-head"> <label>Time</label>
+						</span> <span class="cell"> </span>
+					</div>
+					<div class="row">
+						<span class="cell-head"> <label>Item types</label>
+						</span> <span class="cell"> </span>
+					</div>
+					<div class="row">
+						<span class="cell-head"> <label>Comments</label>
+						</span> <span class="cell"> </span>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="picture">
+		  <img src="http://sa.aos.ask.com/us/pt/tr/maple.jpg"/>
+		</div>
+	</div>
+</body>
+
+</html>

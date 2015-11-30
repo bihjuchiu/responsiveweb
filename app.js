@@ -2,7 +2,8 @@ var app = angular.module("mainApp", [
 //  'ngRoute'
 ]);
 
-app.controller("mainCtrl", MainCtrl);
+//app.controller("mainCtrl", MainCtrl);
+app.controller("createCtrl", CreateCtrl);
 
 /*
 var configProviders = function($routeProvider) {
