@@ -90,7 +90,7 @@
                             <div class="table">
                               <div class="row">
 						        <input class="cell" type="date" ng-model="createCtrl.dateInfo['current']"></input>
-						        <input class="cell"type="button" value="Test button" ng-click="createCtrl.testButtonClicked()"></input>
+						        <input class="cell button-size"type="button" value="Test button" ng-click="createCtrl.testButtonClicked()"></input>
   						      </div>
                             </div>
                           </td>
@@ -116,7 +116,7 @@
 						  </td>
 						</tr>
 						<!--  Type section  -->
-						<tr>
+						<tr class='row-with-bottom-border'>
 						  <td class='column-head'>
 						    <label>Types</label>
 						  </td>
@@ -139,9 +139,9 @@
 						        </td>
 						        <td class='column-content'>
 						          <select ng-model="createCtrl.typeInfo['current']">
-									<option
-										ng-repeat="type in createCtrl.typeInfo['availableList']"
-										value="type">{{type}}</option>
+						          <option ng-selected="type == createCtrl.typeInfo['current']"
+						              ng-repeat="type in createCtrl.typeInfo['availableList']"
+										value="{{type}}">{{type}}</option>
 						          </select>
 						          <button value="Add" ng-click="createCtrl.addType()">Add</button>
 						          <button value="Reset" ng-click="createCtrl.resetType()">Reset</button>
@@ -154,6 +154,24 @@
 						      </tr>
 						    </table>
 						  </td>
+						</tr>
+						<!--  Comment section  -->
+						<tr>
+                          <td class='column-head'>
+						    <label>Comments</label>
+						  </td>
+                          <td class='column-content'>
+                            <textarea class='comment-area' ng-model='createCtrl.comment' ng-required="false" title="Example: need extra space.">
+                            </textarea>
+                            <label>{{255 - createCtrl.comment.length}} of 255 characters left</label>
+						  </td>
+						</tr>
+						<!-- Button section -->
+                        <tr>
+                          <td class='column-head' colspan=2>
+                            <button class='button-size'>Submit</button>
+                            <button class='button-size'>Cancel</button>
+                          </td>
 						</tr>
 					</tbody>
 				</table>

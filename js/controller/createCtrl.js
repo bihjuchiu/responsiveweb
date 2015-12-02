@@ -103,5 +103,6 @@ CreateCtrl.prototype.resetType = function() {
 			return a - b;
 		});
 	}
+	this.typeInfo['current'] = '';
 	
 };
