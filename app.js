@@ -3,7 +3,8 @@ var app = angular.module("mainApp", [
 ]);
 
 //app.controller("mainCtrl", MainCtrl);
-app.controller("createCtrl", CreateCtrl);
+//app.controller("createCtrl", CreateCtrl);
+app.controller("listCtrl", ListCtrl);
 
 /*
 var configProviders = function($routeProvider) {
