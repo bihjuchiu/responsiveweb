@@ -14,19 +14,35 @@
 <body ng-app="mainApp" ng-controller="listCtrl">
   <h2>List items</h2>
   
-  <table>
+  <table class='item-table' ng-init="listCtrl.reverse=false">
     <tr>
       <th style="width: 20%">
-        Date/Time
+        <a ng-click="predicate='time';listCtrl.sortByTime();
+            listCtrl.reverse = !listCtrl.reverse"
+            ng-class="{predicate: predicate=='time'}">
+          Date/Time
+        </a>
       </th>
       <th style="width: 20%">
-        Item
+        <a ng-click="predicate='item';listCtrl.sortByItem();
+            listCtrl.reverse = !listCtrl.reverse"
+            ng-class="{predicate: predicate=='item'}">
+          Item
+        </a>
       </th>
       <th style="width: 20%">
-        Owner
+        <a ng-click="predicate='owner';listCtrl.sortByOwner();
+            listCtrl.reverse = !listCtrl.reverse"
+            ng-class="{predicate: predicate=='owner'}">
+          Owner
+        </a>
       </th>
       <th style="width: 20%">
-        Size
+        <a ng-click="predicate='size';listCtrl.sortBySize();
+            listCtrl.reverse = !listCtrl.reverse"
+            ng-class="{predicate: predicate=='size'}">
+          Size
+        </a>
       </th>
       <th style="width: 10%">
         Edit
@@ -50,13 +66,13 @@
       </td>
       <td style="width: 10%">
         <span style="cursor: pointer; opacity: .2;"
-            ng:click="listCtrl.edit($index)">
+            ng-click="listCtrl.edit($index)">
           <img ng:src="../images/edit.png">
         </span>
       </td>
       <td style="width: 10%">
         <span style="cursor: pointer; opacity: .2;"
-            ng:click="listCtrl.edit($index)">
+            ng-click="listCtrl.edit($index)">
           <img ng:src="../images/delete.png">
         </span>
       </td>
