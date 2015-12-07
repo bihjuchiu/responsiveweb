@@ -1,6 +1,7 @@
 .item-table tr td {
   line-height: 1em;
   padding-left: 1em;
+  text-align: center;
 }
 
 .item-table tr:hover th a {
